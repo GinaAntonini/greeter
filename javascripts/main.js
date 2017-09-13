@@ -2,5 +2,15 @@
 
 const GreetingGenerator = require('./greetingGenerator');
 
-document.getElementById("output").innerHTML = GreetingGenerator.spanish();
+document.getElementById('buttons').addEventListener('click', (event) => {
+	let languageSelected = event.target.id;
+	if (event.target.id === 'buttons') {
+		languageSelected = 'english';
+	} else {
+		languageSelected = event.target.id;
+	}
+	console.log("selected language", languageSelected);
+	document.getElementById("output").innerHTML = GreetingGenerator[languageSelected]();
+});
+
 
